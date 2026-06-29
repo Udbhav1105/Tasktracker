@@ -7,6 +7,14 @@ import axios from 'axios'
 
 export default function Dashboard(){
     const navigate=useNavigate()
+     const [tasks, settasks] = useState([])
+     const getcart=async() => {
+     let res=await axios.get('http://localhost:3000/api/tasks/get')
+     settasks(res.data.tasks)
+ }
+    useEffect(()=>{
+     getcart()
+    }, [])
    
 return(
 
@@ -16,7 +24,7 @@ return(
 <h1 className="text-4xl font-bold mb-8">
 Task Dashboard
 </h1>
-<TaskList/>
+<TaskList tasks={tasks} getTasks={getcart} />
 </div>
 
  <button

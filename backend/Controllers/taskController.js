@@ -1,12 +1,15 @@
+import { json } from 'express';
 import Task from '../Models/taskModel.js'
 
 export const createTask=async(req,res)=>{
-    console.log(req.body)
-const {title,description,priority}=req.body;
+
+const {title,description,priority,dueDate}=req.body;
+
 const task=await Task.create({
     title:title,
     description,
-    priority
+    priority,
+    dueDate
 })
 
 res.status(200).json({
@@ -55,3 +58,36 @@ message:"Deleted"
 
 }
 
+
+export const complete=async(req,res)=>{
+    const id=req.params.id
+
+    const t=await Task.findById({_id:id})
+    if(!t){
+       return res.status(404).json({
+            success:false,
+            message:"Task not found"
+        })
+    }
+    t.status="Completed"
+    await t.save()
+    return res.status(200).json({
+        success:true,
+        message:"Task completed"
+    })
+}
+
+export const getTasksById=async(req,res)=>{
+    const id=req.params.id
+    const t= await Task.findById(id)
+    if(!t){
+        return res.status(404).json({
+            success:false,
+            message:"Task not found"
+        })
+    }
+    return res.status(200).json({
+        success:true,
+        task:t
+    })
+}

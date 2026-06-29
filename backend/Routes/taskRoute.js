@@ -8,7 +8,9 @@ getTasks,
 
 updateTask,
 
-deleteTask
+deleteTask,
+complete,
+getTasksById
 
 } from "../Controllers/taskController.js";
 
@@ -18,8 +20,12 @@ router.post("/",createTask);
 
 router.get("/get",getTasks);
 
+router.get("/getbyid/:id",getTasksById);
+
 router.put("/:id",updateTask);
 
-router.delete("/:id",deleteTask);
+router.delete("/delete/:id",deleteTask);
+
+router.post('/complete/:id',complete)
 
 export default router;

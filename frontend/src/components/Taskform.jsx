@@ -17,10 +17,8 @@ setTask({...task,[e.target.name]:e.target.value})
 }
 
 const handleSubmit=async(e)=>{
-    console.log(task)
     e.preventDefault();
-    let res=await axios.post('http://localhost:3000/api/tasks/',{title:task.title,description:task.description,priority:task.priority})
-    console.log("dvsjfsy")
+    let res=await axios.post('http://localhost:3000/api/tasks/',{title:task.title,description:task.description,priority:task.priority,dueDate:task.dueDate})
     toast.success(res.data.message)
    navigate("/")
 }
@@ -85,9 +83,6 @@ className="border rounded-lg p-3"
 
 <button
 type="submit"
-onClick={()=>{
-    console.log("button clicked")
-}}
 className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700"
 >
 

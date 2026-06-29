@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import taskRoute from "./Routes/taskRoute.js";
+import connectDB from "./Models/db.js";
 
 dotenv.config();
 
@@ -11,9 +12,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
-mongoose.connect(process.env.MONGO_URI)
-.then(()=>console.log("DB Connected"));
+connectDB()
 
 app.use("/api/tasks",taskRoute);
 

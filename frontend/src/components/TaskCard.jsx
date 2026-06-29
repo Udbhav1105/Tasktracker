@@ -30,7 +30,7 @@ export default function TaskCard({ task, getTasks }) {
   };
 
   return (
-    <div className="bg-white rounded-xl w-[18vw] shadow-md p-6 hover:shadow-xl duration-300">
+    <div className="bg-white rounded-xl w-72 shadow-md p-6 hover:shadow-xl duration-300">
       <div className="flex justify-between flex-wrap">
         <h2 className="text-xl font-bold">{task.title}</h2>
 

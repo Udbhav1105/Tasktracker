@@ -17,14 +17,14 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center" >
-      <div className="flex justify-between py-4 px-4">
+    <div className="flex flex-col justify-center items-center " >
+      <div className="flex flex-col md:flex-row justify-between items-center w-full py-4 px-4">
         <h1 className="text-4xl font-bold mb-8">Task Dashboard</h1>
       <button
         onClick={() => {
           navigate("/create");
         }}
-        className="bg-blue-400 absolute right-10 cursor-pointer text-gray-950 rounded-full px-6 py-1 font-semibold text-xl"
+        className="bg-blue-400  cursor-pointer text-gray-950 rounded-full px-6 py-1 font-semibold text-xl"
       >
         Create Task
       </button>

@@ -10,7 +10,7 @@ export default function TaskCard({ task, getTasks }) {
   const deleteTask = async () => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/api/tasks/delete/${task._id}`,
+        ` /api/tasks/delete/${task._id}`,
       );
       await getTasks();
     } catch (err) {
@@ -21,7 +21,7 @@ export default function TaskCard({ task, getTasks }) {
   const completeTask = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/tasks/complete/${task._id}`, // Complete API
+        `/api/tasks/complete/${task._id}`, // Complete API
       );
       await getTasks();
     } catch (err) {

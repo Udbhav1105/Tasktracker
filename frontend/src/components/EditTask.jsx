@@ -21,7 +21,7 @@ export default function EditTask() {
 
   useEffect(() => {
   const getTask=async()=>{
-    let res=await axios.get(`http://localhost:3000/api/tasks/getbyid/${id}`)
+    let res=await axios.get(` /api/tasks/getbyid/${id}`)
     setTask({
       title:res.data?.task.title,
       description:res.data?.task.description,
@@ -36,7 +36,7 @@ export default function EditTask() {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/tasks/${id}`, // <-- Update API
+        ` /api/tasks/${id}`, // <-- Update API
         task
       );
 

@@ -18,7 +18,7 @@ setTask({...task,[e.target.name]:e.target.value})
 
 const handleSubmit=async(e)=>{
     e.preventDefault();
-    let res=await axios.post('http://localhost:3000/api/tasks/',{title:task.title,description:task.description,priority:task.priority,dueDate:task.dueDate})
+    let res=await axios.post(' /api/tasks/',{title:task.title,description:task.description,priority:task.priority,dueDate:task.dueDate})
     toast.success(res.data.message)
    navigate("/")
 }

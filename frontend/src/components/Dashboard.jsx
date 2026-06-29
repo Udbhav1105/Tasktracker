@@ -9,7 +9,7 @@ export default function Dashboard(){
     const navigate=useNavigate()
      const [tasks, settasks] = useState([])
      const getcart=async() => {
-     let res=await axios.get('http://localhost:3000/api/tasks/get')
+     let res=await axios.get('/api/tasks/get')
      settasks(res.data.tasks)
  }
     useEffect(()=>{
